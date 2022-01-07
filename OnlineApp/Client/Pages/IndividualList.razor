@@ -1,0 +1,68 @@
+﻿@page "/IndividualList"
+<h3>IndividualList</h3>
+
+<h1>Wel Come to Online Data Entry Portal</h1>
+
+@*<div style="float:right">
+    <EditForm Model="_filter" OnValidSubmit="OnSearch">
+        <InputText Id="Name" @bind-Value="_filter.Name"></InputText>
+        <button type="submit" class="btn btn-info">🔍 Search</button>
+    </EditForm>
+</div>*@
+@if (Individuals == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+<table class="table" style="line-height:1">
+        <thead>
+            <tr>
+                @*<th></th>*@
+                
+               <th>Name</th>
+
+                <th>DOB</th>
+                <th>Address</th>
+                <th>Email</th>
+                <th>Phone No.</th>
+                <th>Education</th>
+                <th>Country</th>
+                <th>Work Experience </th>
+                <th>Created Date</th>
+                <th>Modified Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var std in Individuals)
+            {
+            <tr>
+                
+                <td>@std.Name</td>
+                <td>@Convert.ToDateTime( std.DoB).ToString("dd/MMM/yyyy")</td>
+                <td>@std.Address</td>
+                <td>@std.Email</td>
+                <td>@std.PhoneNumber</td>
+                <td>@std.EducationText</td>
+                <td>@std.CountryText</td>
+                <td>@std.WorkExprience</td>
+                <td>@Convert.ToDateTime( std.CreateDate).ToString("dd/MMM/yyyy")</td>
+                <td>@Convert.ToDateTime( std.ModifiedDate).ToString("dd/MMM/yyyy")</td>
+                
+
+
+
+               <td>
+                   @*<a href="/addeditstudent/@std.IndividualGuid" class="btn btn-secondary">Edit</a>
+                   <button @onclick="(()=>DeleateStudent(std.IndividualGuid))" class="btn btn-warning">❌</button>*@
+               </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+@*<a href="addeditstudent" class="btn btn-dark table-btn quick-add-btn float-right" title="Add new Student">&nbsp;&nbsp;+&nbsp;&nbsp;</a>*@
+

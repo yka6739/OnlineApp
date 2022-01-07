@@ -1,0 +1,119 @@
+﻿@*@page  "/addeditindividual"
+@page "/addeditindividual/{IndividualGuid}"
+<h1>Add New Student</h1>
+<EditForm Model="ObjIndividual" OnValidSubmit="HandleValidSubmit" OnInvalidSubmit="HandleInvalidSubmit">
+
+    <div class="form-group row">
+        <label for="studentName" class="col-sm-3">Name: </label>
+        <InputText id="studentName" class="form-control col-sm-8" @bind-Value="@ObjIndividual.Name" placeholder="Enter student name"></InputText>
+
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-8">
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => ObjIndividual.Name)" />
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="dateOfBirth" class="col-sm-3">Date Of Birth : </label>
+        <InputDate id="dateOfBirth" class="form-control col-sm-8" @bind-Value="@ObjIndividual.DoB" placeholder="Enter Date Of Birth"></InputDate>
+
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-8">
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => ObjIndividual.DoB)" />
+
+        </div>
+    </div>
+
+    
+
+>
+
+    <div class="form-group row">
+        <label for="admissionno" class="col-sm-3">Admission No. : </label>
+        <InputNumber id="admissionno" class="form-control col-sm-8" @bind-Value="@ObjIndividual.IndividualId" placeholder="Enter Admission No."></InputNumber>
+
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-8">
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => ObjIndividual.IndividualId)" />
+
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="phoneno" class="col-sm-3">Phone No. : </label>
+        <InputNumber id="phoneno" class="form-control col-sm-8" @bind-Value="@ObjIndividual.PhoneNumber" placeholder="Enter Phone No."></InputNumber>
+
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-8">
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => ObjIndividual.PhoneNumber)" />
+
+        </div>
+    </div>
+
+
+    <div class="form-group row">
+        <label for="adress" class="col-sm-3">Adress : </label>
+        <InputText id="adress" class="form-control col-sm-8" @bind-Value="@ObjIndividual.Address" placeholder="Enter Adress"></InputText>
+
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-8">
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => ObjIndividual.Address)" />
+
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="EmployeeTypeId" class="col-sm-3"> EducationText :</label>
+        <CustomInputSelect id="ResidenceTypeId" @bind-Value="@ObjIndividual.EducationId" class="form-control col-sm-8">
+
+            @foreach (var res in _educations)
+            {
+                <option value="@res.EducationId">
+                    @res.EducationText
+                </option>
+            }
+            /**/
+
+        </CustomInputSelect>
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-8">
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => ObjIndividual.EducationId)" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="EmployeeTypeId" class="col-sm-3">Mode Of Transpot :</label>
+        <CustomInputSelect id="ModeOfTransportId" @bind-Value="@ObjIndividual.CountryId" class="form-control col-sm-8">
+
+            @foreach (var mod in _countries)
+            {
+                <option value="@mod.CountryId">
+                    @mod.CountryText
+                </option>
+            }
+            /**/
+
+        </CustomInputSelect>
+        <div class="col-sm-3">&nbsp;</div>
+        <div class="col-sm-8">
+            <ValidationMessage class="offset-sm-3 col-sm-8" For="@(() => ObjIndividual.CountryId)" />
+        </div>
+    </div>
+
+    <div class="form-group row">
+
+        <button id="btnsave" type="submit" class="btn-success offset-md-3">✅</button>
+        &nbsp;
+        &nbsp;
+        <button id="btnsave" type="button" class="btn-danger" @onclick="OnCancleClick">Cancle</button>
+
+    </div>
+
+</EditForm>
+
+
+@code {
+
+}
+*@

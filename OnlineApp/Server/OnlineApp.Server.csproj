@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\OnlineApp.Data.Contracts\OnlineApp.Data.Contracts.csproj" />
+    <ProjectReference Include="..\..\OnlineApp.Data\OnlineApp.Data.csproj" />
+    <ProjectReference Include="..\Client\OnlineApp.Client.csproj" />
+    <ProjectReference Include="..\Shared\OnlineApp.Shared.csproj" />
+  </ItemGroup>
+
+
+</Project>
